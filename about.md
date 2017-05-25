@@ -4,12 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+This is [Piyush Jain](http://wiki.octave.org/User:PiyushJain). I am a second year undergraduate student in the department of Computer Science and Engineering at IIT Guwahati.
 
-### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[piyushjain1sa@gmail.com](mailto:piyushjain1sa@gmail.com)
