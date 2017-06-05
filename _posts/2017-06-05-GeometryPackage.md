@@ -13,7 +13,7 @@ My first goal was to explore the possibility if the already implemented mex-inte
 ## First Coding Phase
 As stated, there is an already implemented [Geometry3.0 package](https://github.com/piyush-jain1/GSoC17OctaveGeometry). This has mex interface for its functions. I tried to compare its performance with the oct interface version. For benchmarking, I first implemented my own function for polyUnion (using clipper library) with oct-interface [(Find it here)](https://github.com/piyush-jain1/GSoC17OctaveGeometry/tree/master/devel/MyPolyUnion). Then, I compared its performance over a number of different sets of polgons (parametrized over number of vertices) and recorded the elapsed times with both the interfaces. On plotting a graph of Number of vertices V/s Elapsed time (for oct and mex), following obseravtions were made : </br>
 - The oct interface had a better performance over mex.
-- For 10000 vertices, the oct interface took about 0.008 seconds while the mex interface took about 0.014 seconds. This implies oct interface took 8*10e-3 seconds / 10e4 vertices i.e. 8*10e-7 seconds per vertex. For mex, it was 14*10e-7 seconds per vertex.
+- For 10000 vertices, the oct interface took about 0.008 seconds while the mex interface took about 0.014 seconds. This implies oct interface took 8X10e-3 seconds / 10e4 vertices i.e. 8X10e-7 seconds per vertex. For mex, it was 14X10e-7 seconds per vertex.
 - As it can be seen from the above data, the oct interface was not more than twice as good as mex interface.</br>
 From these observations, it was concluded that it is not worth to change the interface from mex to oct since there was not much improvement in performance. Thus, my next goal is now to incorporate new algorithms.
 
