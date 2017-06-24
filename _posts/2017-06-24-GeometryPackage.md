@@ -19,7 +19,16 @@ From these observations, it was concluded that it is not worth to change the int
 
 After spending decent time over checking out the new algorithm and understanding its implementation, I have now started to implement the polybool function. I also tried to compare its performance with the already implemented clipPolygon in the current geometry package. The new algorithm has a better performance than the old one. 
 
-The implementation of boolean operations on polygons, like **DIFFERENCE** , **INTERSECTION** , **XOR** and **UNION**   with the new algorithm is almost done. A little work on tests, demos and documentation is still needed and we are working on that.
+The implementation of boolean operations on polygons, like **DIFFERENCE** , **INTERSECTION** , **XOR** and **UNION**   with the new algorithm is almost done. A little work on tests, demos and documentation is still needed and I am working on that.
+
+#### More about the algorithm by F. Martínez, A.J. Rueda, F.R. Feito ####
+The algorithm is very easy to understand, among other things because it can be seen as an extension of the classical algorithm, based on the plane sweep, for computing the intersection points between a set of segments.When a new intersection between the edges of polygons is found, the algorithm subdivides the edges at the intersection point. This produces a plane sweep algorithm with only two kind of events: left and right endpoints, making the algorithm quite simple. Furthermore, the subdivision of edges provides a simple way of processing degeneracies. </br>
+Overall sketch of the approach for computing Boolean operations on polygons:
+- Subdivide the edges of the polygons at their intersection points.
+- Select those subdivided edges that lie inside the other polygon—or that do not lie depending on the operation.
+- Join the edges selected in step 2 to form the result polygon.</br>
+#### Complexity ####
+Let n be the total number of edges of all the polygons involved in the Boolean operation and k be the number of intersections of all the polygon edges. The whole algorithm runs in time **O(n+k)log(n)**.
 
 
 
