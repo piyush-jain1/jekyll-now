@@ -28,7 +28,11 @@ Overall sketch of the approach for computing Boolean operations on polygons:
 - Select those subdivided edges that lie inside the other polygon—or that do not lie depending on the operation.
 - Join the edges selected in step 2 to form the result polygon.</br>
 #### Complexity ####
-Let n be the total number of edges of all the polygons involved in the Boolean operation and k be the number of intersections of all the polygon edges. The whole algorithm runs in time **O(n+k)log(n)**.
+Let n be the total number of edges of all the polygons involved in the Boolean operation and k be the number of intersections of all the polygon edges. The whole algorithm runs in time **O(n+k)log(n)**.</br>
+
+After raw testing this new algorithm on several cases, I am now adding few tests in the m-script. Other than that, a demo has also been added in the m-script. The demo can be seen by the command `demo clipPolygon`. 
+
+
 
 
 
