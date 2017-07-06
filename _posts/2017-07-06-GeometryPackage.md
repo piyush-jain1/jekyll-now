@@ -30,8 +30,10 @@ Overall sketch of the approach for computing Boolean operations on polygons:
 #### Complexity ####
 Let n be the total number of edges of all the polygons involved in the Boolean operation and k be the number of intersections of all the polygon edges. The whole algorithm runs in time **O(n+k)log(n)**.</br>
 
-After raw testing this new algorithm on several cases, I am now adding few tests in the m-script. Other than that, a demo has also been added in the m-script. The demo can be seen by the command `demo clipPolygon`. 
+After raw testing this new algorithm on several cases, I am now adding few tests in the m-script. Other than that, a demo has also been added in the m-script. The demo can be seen by the command `demo clipPolygon_mrf`. The tests have also been added. The test can be seen by `test clipPolygon_mrf`.
 
+## Second Coding Phase
+After implementing the polybool function and checking it, we are planning to include it in the next release of geometry package. NOw , to move forward, we are first importing some functions from last year GSoC's repo and ensuring their MATLAB compatibility.
 
 
 
