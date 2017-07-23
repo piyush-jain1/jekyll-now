@@ -33,8 +33,10 @@ Let n be the total number of edges of all the polygons involved in the Boolean o
 After raw testing this new algorithm on several cases, I am now adding few tests in the m-script. Other than that, a demo has also been added in the m-script. The demo can be seen by the command `demo clipPolygon_mrf`. The tests have also been added. The test can be seen by `test clipPolygon_mrf`.
 
 ## Second Coding Phase
-After implementing the polybool function and checking it, we are planning to include it in the next release of geometry package. NOw , to move forward, we are first importing some functions from last year GSoC's repo and ensuring their MATLAB compatibility.
-
+After implementing the polybool function and checking it, we are planning to include it in the next release of geometry package. 
+Now , to move forward, I am first importing some functions from last year GSoC's repo and ensuring their MATLAB compatibility.
+Functions like poly2ccw, poly2cw, joinpolygons, splitPolygons have been created as aliases while ensuring their compatibility with their mathworks counterparts. 
+The further plan is to sync the matgeom package with the geometry package.
 
 
 
