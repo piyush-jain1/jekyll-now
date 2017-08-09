@@ -36,7 +36,82 @@ After raw testing this new algorithm on several cases, I am now adding few tests
 After implementing the polybool function and checking it, we are planning to include it in the next release of geometry package. 
 Now , to move forward, I am first importing some functions from last year GSoC's repo and ensuring their MATLAB compatibility.
 Functions like poly2ccw, poly2cw, joinpolygons, splitPolygons have been created as aliases while ensuring their compatibility with their mathworks counterparts. 
+Then after, there was some time invested on understanding the CGAL library and its implementation.
+
 The further plan is to sync the matgeom package with the geometry package.
+
+## Third Coding Phase
+Proceeding towards the next goal, the idea is to devise some way to automate the process somewhat, of syncing the matgeom and geometry package. The issue is that when a new release of geometry package is planned, there are some things which ahve been updated in matgeom but not in their geometry counterparts (if it exists). So, every time before releasing, so much time has to be invested in manually checking each edit and syncing it into the geometry. 
+
+To achieve this, first a workaround is implemented on a dummy repository - [dummyMatGeom](https://github.com/piyush-jain1/dummyMatGeom/). Its master branch is matGeom (dummy) and there is another branch (named geometry) is created which contains geometry package (dummy). To test the entire procedure, go to the dummy repository dummyMatGeom , pull both branches in different folders, say "dummyMatGeom" for master branch and "dummyGeom" for geometry branch. Then follow the given steps as explained on the [wiki page](http://wiki.octave.org/Geometry_package:GSoC17).
+
+#### Challenges ####
+
+- Clearly, the above procedure will only sync the script of the function, not it's tests and demo, which are in separate folders in a Matlab package structure. Even if we try to concatenate their corresponding test/demo scripts with the function scripts (as it is in an octave package structure), there will be discrepancies because the notion or writing tests for octave and matlab packages are quite different. The way octave allows tests to work is unique to octave as explained here. SO, we can't simply concatenate the Matlab test scripts with the functions. 
+
+- Git doesn't preserves the original version of geometry scripts and overwrites the whole file completely. 
+For example :
+
+1. Original file at matGeom (upstream)
+~~~~
+% Bla bla
+% bla bla bla
+
+function z = blabla (x,y)
+% Help of function
+for i=1:length(x)
+   z(i) = x(i)*y(i);
+end
+~~~~
+
+2. Ported to geometry
+~~~~
+# Copyright - Somebody
+# Bla bla
+# bla bla bla
+
+# texinfo
+# Help of function
+
+function z = blabla (x,y)
+   z = x .* y;
+endfunction
+~~~~
+
+3. Updated in matGeom
+~~~~
+% Bla bla
+% bla bla bla
+
+function z = blabla (x,y)
+% Help of function
+% updated to be more clear
+z = zeros (size(x));
+for i=1:length(x)
+   z(i) = x(i)*y(i);
+end
+~~~~
+
+4. After syncing , the expected result is something like this :
+~~~~
+# Copyright - Somebody
+# Bla bla
+# bla bla bla
+
+# texinfo
+# Help of function
+# updated to be more clear
+
+function z = blabla (x,y)
+   z = zeros (size(x));
+   z = x .* y;
+endfunction
+~~~~
+
+But, this doesn't happen as expected. Git just finds the files which have been modified and overwrites those files completely.
+Considering the possibilities of the solutions, there are ways like `git patch` or `git interactive` which allows us to select the lines specifically which we want to be committed, but that would not serve our purpose as it would not be better than syncing it manually, file by file. Looking for a better solution to handle this !
+
+Now, the further idea is to release geometry and I am getting involved into it to get a feel of how things are done.
 
 
 
