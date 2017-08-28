@@ -6,6 +6,20 @@ title: Geometry Package (Octave)
 # Geometry package: Implement boolean operations on polygons ##
 As part of GSoC 2017 , this project is intended to implement a set of boolean operations and supporting function for acting on polygons. These include the standard set of potential operations such as union/OR, intersection/AND, difference/subtraction, and exclusiveor/XOR. Other things to be implemented are the following functions: polybool, ispolycw, poly2ccw, poly2cw, poly2fv, polyjoin, and polysplit.<br/>
 
+This Repository (https://github.com/piyush-jain1/GSoC17OctaveGeometry) is a clone(fork) of the Geometry Package which is a part of the Octave Forge Project (http://octave.sourceforge.net/).</br>
+This fork adds new functions to the official Geometry Package as part of GSoC (Google Summer of Code) 2016.
+
+The official Geometry Package can be found here (https://sourceforge.net/p/octave/geometry/ci/default/tree/)
+
+## Added files and functions
+1. /inst/polygons2d/clipPolygon_mrf.m
+2. /inst/polygons2d/private/\__poly2struct\__.m
+3. /src/martinez.cpp
+4. /src/polygon.cpp
+5. /src/utilities.cpp
+6. /src/polybool_mrf.cc
+7. /inst/polygons2d/funcAliases
+
 ## Bonding Period
 After discussion with my mentor and keeping my proposal in mind, I tried to understand and enlist the tasks more specifically and in detail.  I first tried to understand the conventions and other things about the organisation. I tried to understand the first basic thing which I will need throughout this project, i.e. how we create an oct-interface for the C++ codes to be executable in Octave. 
 My first goal was to explore the possibility if the already implemented mex-interface geometry package can be improved in performance by replacing it with oct-interface. So, for understanding how these oct-files work and other things , I started to  implement something in oct-files and getting familiar with it.
@@ -53,7 +67,7 @@ To achieve this, first a workaround is implemented on a dummy repository - [dumm
 For example :
 
 1. Original file at matGeom (upstream)
-~~~~
+~~~~octave
 % Bla bla
 % bla bla bla
 
@@ -65,7 +79,7 @@ end
 ~~~~
 
 2. Ported to geometry
-~~~~
+~~~~octave
 # Copyright - Somebody
 # Bla bla
 # bla bla bla
@@ -79,7 +93,7 @@ endfunction
 ~~~~
 
 3. Updated in matGeom
-~~~~
+~~~~octave
 % Bla bla
 % bla bla bla
 
@@ -93,7 +107,7 @@ end
 ~~~~
 
 4. After syncing , the expected result is something like this :
-~~~~
+~~~~octave
 # Copyright - Somebody
 # Bla bla
 # bla bla bla
@@ -112,6 +126,8 @@ But, this doesn't happen as expected. Git just finds the files which have been m
 Considering the possibilities of the solutions, there are ways like `git patch` or `git interactive` which allows us to select the lines specifically which we want to be committed, but that would not serve our purpose as it would not be better than syncing it manually, file by file. Looking for a better solution to handle this !
 
 Now, the further idea is to release geometry and I am getting involved into it to get a feel of how things are done.
+
+Thus, as the time concludes, it's time to say Goodbye to GSoC'17. It was overall a great learning experience.
 
 
 
