@@ -11,6 +11,10 @@ This fork adds new functions to the official Geometry Package as part of GSoC (G
 
 The official Geometry Package can be found [here] (https://sourceforge.net/p/octave/geometry/ci/default/tree/)
 
+Link to commits on official repo :
+[19a35e] (https://sourceforge.net/p/octave/geometry/ci/19a35efc16dbe645e0bbfbffe9cfaa14e5ec9c96/)
+[fc3710] (https://sourceforge.net/p/octave/geometry/ci/fc3710b6cce55502e6eff4dc4251d507bc5b4ff1/)
+
 ## Added files and functions
 1. /inst/polygons2d/clipPolygon_mrf.m
 2. /inst/polygons2d/private/\__poly2struct\__.m
