@@ -67,7 +67,9 @@ To achieve this, first a workaround is implemented on a dummy repository - [dumm
 For example :
 
 1. Original file at matGeom (upstream)
+
 ~~~~octave
+
 % Bla bla
 % bla bla bla
 
@@ -76,10 +78,13 @@ function z = blabla (x,y)
 for i=1:length(x)
    z(i) = x(i)*y(i);
 end
+
 ~~~~
 
 2. Ported to geometry
+
 ~~~~octave
+
 # Copyright - Somebody
 # Bla bla
 # bla bla bla
@@ -90,10 +95,13 @@ end
 function z = blabla (x,y)
    z = x .* y;
 endfunction
+
 ~~~~
 
 3. Updated in matGeom
+
 ~~~~octave
+
 % Bla bla
 % bla bla bla
 
@@ -104,10 +112,13 @@ z = zeros (size(x));
 for i=1:length(x)
    z(i) = x(i)*y(i);
 end
+
 ~~~~
 
 4. After syncing , the expected result is something like this :
+
 ~~~~octave
+
 # Copyright - Somebody
 # Bla bla
 # bla bla bla
@@ -120,6 +131,7 @@ function z = blabla (x,y)
    z = zeros (size(x));
    z = x .* y;
 endfunction
+
 ~~~~
 
 But, this doesn't happen as expected. Git just finds the files which have been modified and overwrites those files completely.
