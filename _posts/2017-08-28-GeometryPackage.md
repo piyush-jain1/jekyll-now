@@ -6,7 +6,7 @@ title: Geometry Package (Octave)
 # Geometry package: Implement boolean operations on polygons ##
 As part of GSoC 2017 , this project is intended to implement a set of boolean operations and supporting function for acting on polygons. These include the standard set of potential operations such as union/OR, intersection/AND, difference/subtraction, and exclusiveor/XOR. Other things to be implemented are the following functions: polybool, ispolycw, poly2ccw, poly2cw, poly2fv, polyjoin, and polysplit.<br/>
 
-This [Repository](https://github.com/piyush-jain1/GSoC17OctaveGeometry) is a clone(fork) of the Geometry Package which is a part of the [Octave Forge Project](http://octave.sourceforge.net/).</br>
+This [Repository](https://github.com/piyush-jain1/GSoC17OctaveGeometry) is a clone(fork) of the Geometry Package which is a part of the [Octave Forge Project](http://octave.sourceforge.net/).<br/>
 
 This fork adds new functions to the official Geometry Package as part of GSoC (Google Summer of Code) 2016.
 
